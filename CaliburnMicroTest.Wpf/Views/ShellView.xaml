@@ -1,0 +1,53 @@
+﻿<Window x:Class="CaliburnMicroTest.Wpf.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaliburnMicroTest.Wpf.Views"
+               xmlns:vm="clr-namespace:CaliburnMicroTest.Wpf.ViewModels"
+            
+        mc:Ignorable="d"
+        Title="{Binding Path=Title, Mode=OneTime}" Height="450" Width="800">
+
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Path=InputField, Mode=OneWay}" Grid.Row="0" Background="Beige"></TextBlock>
+        <TextBox Name="InputField" Grid.Row="1"></TextBox>
+        <TextBlock Name="StatusMessage" Grid.Row="2" />
+        <Button Name="ValidateButton" Grid.Row="3">Validate Input</Button>
+
+
+
+        <ContentControl x:Name="ActiveItem" Grid.Row="5" />
+
+        <StackPanel  Grid.Row="6" Orientation="Horizontal">
+            <Button Name="FirstViewButton">First View</Button>
+            <Border Width="4" />
+            <Button Name="SecondViewButton">Second View</Button>
+        </StackPanel>
+
+        <!--Output Window-->
+        <ScrollViewer  Grid.Row="7" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Messages}" Margin="10">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
