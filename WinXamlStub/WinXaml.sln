@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinXaml", "WinXaml.csproj", "{E758617B-EA02-4047-900A-B1C8E5E6956A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E758617B-EA02-4047-900A-B1C8E5E6956A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E758617B-EA02-4047-900A-B1C8E5E6956A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E758617B-EA02-4047-900A-B1C8E5E6956A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E758617B-EA02-4047-900A-B1C8E5E6956A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68849436-1FD0-43AB-B2DF-01E82DE7D728}
+	EndGlobalSection
+EndGlobal

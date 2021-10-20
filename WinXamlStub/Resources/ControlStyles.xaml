@@ -1,0 +1,266 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="Link" TargetType="Button">
+
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="Blue"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock TextDecorations="Underline" 
+                               Text="{TemplateBinding Content}"
+                               Background="{TemplateBinding Background}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="Red"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ChromeButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!--Default state-->
+                    <Border x:Name="btn">
+                        <Border.Background>
+                            <SolidColorBrush Color="Transparent" />
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextBlock.Foreground="White">
+                        </ContentPresenter>
+                    </Border>
+
+                    <!--Behaviors-->
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="btn" Value="#141414"/>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="btn">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#3F88C5"></SolidColorBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="btn" Value="0.25"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ChromeCloseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ChromeButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!--Default state-->
+                    <Border x:Name="btn">
+                        <Border.Background>
+                            <SolidColorBrush Color="DarkOliveGreen" Opacity="0.70" />
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"                                           
+                                          TextBlock.Foreground="White" >
+                        </ContentPresenter>
+                    </Border>
+                    <!--Behaviors-->
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="btn" Value="#A31621"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlatButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="62"/>
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!--Default state-->
+                    <Border x:Name="btn" Height="Auto">
+                        <Border.Background>
+                            <SolidColorBrush Color="Transparent" />
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"                                          
+                                          Height="32"
+                                          >
+                        </ContentPresenter>
+                    </Border>
+                    <!--Behaviors-->
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="btn" Value="DarkOliveGreen"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="Background" TargetName="btn" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="btn" Value="Black"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="PillButtonLeft" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                    <!--Default state-->
+                    <Border x:Name="btn">
+                        <Border.CornerRadius>8,0,0,8</Border.CornerRadius>
+                        <Border.BorderThickness>1</Border.BorderThickness>
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="#FEFEFE" Opacity="0.20" />
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <SolidColorBrush Color="Transparent"/>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextBlock.Foreground="White" x:Name="content" >
+                        </ContentPresenter>
+                    </Border>
+                    <!--Behaviors-->
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="btn" Value="#FEFEFE"/>
+                            <Setter Property="TextBlock.Foreground" TargetName="content" Value="Black"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PillButtonRight" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Height" Value="24"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                    <!--Default state-->
+                    <Border x:Name="btn">
+                        <Border.CornerRadius>0,8,8,0</Border.CornerRadius>
+                        <Border.BorderThickness>1</Border.BorderThickness>
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="#FEFEFE" Opacity="0.20" />
+                        </Border.BorderBrush>
+                        <Border.Background>
+                            <SolidColorBrush Color="Transparent"/>
+                        </Border.Background>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextBlock.Foreground="White" x:Name="content">
+                        </ContentPresenter>
+                    </Border>
+                    <!--Behaviors-->
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="btn" Value="#FEFEFE"/>
+                            <Setter Property="TextBlock.Foreground" TargetName="content" Value="Black"/>
+                        </Trigger>
+
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NavButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <StackPanel x:Name="bg" Orientation="Horizontal">
+                        <!--Default state-->
+                        <Border x:Name="line" Height="42" Background="OrangeRed" Width="2" Margin="4"></Border>
+                        <Border x:Name="btn" Height="52" Width="46">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              TextBlock.FontSize="32"
+                                              TextBlock.Foreground="Black" 
+                                              x:Name="content">
+                            </ContentPresenter>
+                        </Border>
+                    </StackPanel>
+
+
+                    <!--Behaviors-->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="line" Value="OrangeRed"/>
+                            <Setter Property="Background" TargetName="bg" Value="#CED3DC"/>
+                            <Setter Property="TextBlock.Foreground" TargetName="content" Value="#001D34"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Background" TargetName="line" Value="#00000000"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="line" Value="OrangeRed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextLabel" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="InputBox" TargetType="TextBox">
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+</ResourceDictionary>
